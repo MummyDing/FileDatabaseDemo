@@ -156,7 +156,7 @@ public class DatabaseHelper {
             initReader();
             while ((tmpStr = reader.readLine()) != null && isFind == false){
                 int pos = tmpStr.indexOf(studentID);
-                if(pos>=0&&tmpStr.charAt(studentID.length())==','){
+                if(pos>=0&&tmpStr.charAt(studentID.length())==','&&tmpStr.substring(0,studentID.length()).equals(studentID)){
                     lineNumber = currentLineNumber;
                     isFind = true;
                 }
@@ -190,7 +190,7 @@ public class DatabaseHelper {
             while((tmpStr = oldFile.readLine()) != null){
                 lines.add(tmpStr);
             }
-            FileOutputStream a=new FileOutputStream(file, false);
+            new FileOutputStream(file, false);
             newFile.seek(0);
             lines.remove(lineNumber);
             for(int i =0 ; i<lines.size();i++){
